@@ -1,4 +1,4 @@
-# Blackjack Projekts
+# Blackjack (Mini)
 
 ## Apraksts
   - Es plānoju izveidot pilnībā funkcionējošu blackjack spēli C++ konsolē, kurā tu centies netikt pāri 21 skaitlim.
