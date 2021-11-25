@@ -5,7 +5,7 @@
 ## Galvenās funkcijas
   - Ievadīt vai tu pacelsi vai paliksi ar savām kārtīm.
   - Aprēķināt cik katra kārts ir vērta
-  - Izveidot array ar visām pieejamām kārtīm
+  - Izveidot array ar visām pieejamām kārtīm (impossible and unneccesary)
 ## Izmantotās tehnoloģijas
   - Šobrīd tikai C+
 ## Izmantotie avoti
