@@ -227,8 +227,7 @@ void draw_card(){
     	card_name = "King of Clubs";
     	}
     }
-    std::cout << "You got a: ";
-    std::cout << card_name;
+    std::cout << "You got a: " << card_name << std::endl;
 	
 }
 int main()
