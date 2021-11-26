@@ -50,16 +50,16 @@ void draw_card(){
     		card_name = "10 of Diamonds";
     	}
     	else if (card == 10) {
-    	points += 10;
-    	card_name = "Jack of Diamonds";
+    		points += 10;
+    		card_name = "Jack of Diamonds";
     	}
     	else if (card == 11) {
-    	points += 10;
-    	card_name = "Queen of Diamonds";
+    		points += 10;
+    		card_name = "Queen of Diamonds";
     	}
     	else if (card == 12) {
-    	points += 10;
-    	card_name = "King of Diamonds";
+    		points += 10;
+    		card_name = "King of Diamonds";
     	}
     }
     if (card_type_r == 1){
@@ -215,19 +215,19 @@ void draw_card(){
     		card_name = "10 of Clubs";
     	}
     	else if (card == 10) {
-    	points += 10;
-    	card_name = "Jack of Clubs";
+    		points += 10;
+    		card_name = "Jack of Clubs";
     	}
     	else if (card == 11) {
-    	points += 10;
-    	card_name = "Queen of Clubs";
+    		points += 10;
+		card_name = "Queen of Clubs";
     	}
     	else if (card == 12) {
-    	points += 10;
-    	card_name = "King of Clubs";
+    		points += 10;
+    		card_name = "King of Clubs";
     	}
     }
-    std::cout << "You got a: " << card_name << std::endl;
+   	std::cout << "You got a: " << card_name << std::endl;
 	std::cout << "You have: " << points << " points." << std::endl;
     
 }
