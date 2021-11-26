@@ -228,7 +228,8 @@ void draw_card(){
     	}
     }
     std::cout << "You got a: " << card_name << std::endl;
-	
+	std::cout << "You have: " << points << " points." << std::endl;
+    
 }
 int main()
 {   
