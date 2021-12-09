@@ -64,36 +64,6 @@ int point_system_enemy(int card){
         epoints += 10;
     }
 }
-
-
-int ace(){
-    std::cout << "You got an ace, input if you want to receive 1 or 11 points: " << std::endl;
-    std::cin >> choice;
-    if(choice == 1){
-        points += 1;
-    }
-    else if(choice == 11){
-        points += 11;
-    }
-}
-int card_draw() {
-    card = rand() % 13;
-    type = rand() % 4;
-    std::cout << "You drew: " << deck[type][card] << std::endl;
-    point_system(card);
-    std::cout << "You have: " << points << " points." << std::endl << std::endl;
-}
-
-int hit_or_stay(){
-    std::cout << "Hit or stay (1 = Hit, 0 = Stay): " << std::endl;
-    std::cin >> choice;
-    if (choice == 1){
-        card_draw();
-    }
-    else if (choice == 0){
-        turn = 0;
-    }
-}
 int point_system(int card){
     if (card == 0){
         ace();
@@ -135,6 +105,36 @@ int point_system(int card){
         points += 10;
     }
 }
+
+int ace(){
+    std::cout << "You got an ace, input if you want to receive 1 or 11 points: " << std::endl;
+    std::cin >> choice;
+    if(choice == 1){
+        points += 1;
+    }
+    else if(choice == 11){
+        points += 11;
+    }
+}
+int card_draw() {
+    card = rand() % 13;
+    type = rand() % 4;
+    std::cout << "You drew: " << deck[type][card] << std::endl;
+    point_system(card);
+    std::cout << "You have: " << points << " points." << std::endl << std::endl;
+}
+
+int hit_or_stay(){
+    std::cout << "Hit or stay (1 = Hit, 0 = Stay): " << std::endl;
+    std::cin >> choice;
+    if (choice == 1){
+        card_draw();
+    }
+    else if (choice == 0){
+        turn = 0;
+    }
+}
+
 int card_draw_enemy(){
     card = rand() % 14;
     type = rand() % 3;
