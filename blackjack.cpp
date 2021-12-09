@@ -18,6 +18,17 @@ std::string deck[4][13] = {{"Ace of Diamonds", "2 of Diamonds", "3 of Diamonds",
                                    "10 of Clubs", "Jack of Clubs", "Queen of Clubs", "King of Clubs"}};
 
 
+
+int ace(){
+    std::cout << "You got an ace, input if you want to receive 1 or 11 points: " << std::endl;
+    std::cin >> choice;
+    if(choice == 1){
+        points += 1;
+    }
+    else if(choice == 11){
+        points += 11;
+    }
+}
 int point_system_enemy(int card){
     if (card == 0){
         if(epoints <= 10) {
@@ -106,16 +117,6 @@ int point_system(int card){
     }
 }
 
-int ace(){
-    std::cout << "You got an ace, input if you want to receive 1 or 11 points: " << std::endl;
-    std::cin >> choice;
-    if(choice == 1){
-        points += 1;
-    }
-    else if(choice == 11){
-        points += 11;
-    }
-}
 int card_draw() {
     card = rand() % 13;
     type = rand() % 4;
