@@ -17,96 +17,15 @@ std::string deck[4][13] = {{"Ace of Diamonds", "2 of Diamonds", "3 of Diamonds",
                            {"Ace of Clubs", "2 of Clubs", "3 of Clubs", "4 of Clubs", "5 of Clubs", "6 of Clubs", "7 of Clubs", "8 of Clubs", "9 of Clubs",
                                    "10 of Clubs", "Jack of Clubs", "Queen of Clubs", "King of Clubs"}};
 
-int enemy_ace(){
-    if (epoints <= 10){
-        epoints += 11;
-    }
-    else{
-        epoints += 1;
-    }
 
-}
-int ace(){
-    std::cout << "You got an ace! Pick between 1 or 11 points to add to your total(Input 1 or 11): " << std::endl;
-    std::cin >> choice;
-    if (choice == 1){
-        points += 1;
-    }
-    else if(choice == 11){
-        points += 11;
-    }
-    else{
-        ace();
-    }
-}
-int card_draw() {
-    card = rand() % 13;
-    type = rand() % 4;
-    std::cout << "You drew: " << deck[type][card] << std::endl;
-    point_system(card);
-    std::cout << "You have " << points << " points." << std::endl << std::endl;
-}
-int card_draw_enemy() {
-    card = rand() % 13;
-    type = rand() % 4;
-    std::cout << "The enemy drew " << deck[type][card] << std::endl;
-    point_system_enemy(card);
-    std::cout << "The enemy has " << epoints << " points." << std::endl << std::endl;
-}
-int hit_or_stay(){
-    std::cout << "Hit or Stay (Hit = 1, Stay = 0): " << std::endl;
-    std::cin >> choice;
-    if(choice == 1){
-        card_draw();
-    }
-    else if(choice == 0){
-        turn = 0;
-    }
-}
-int point_system(int card){
-    if(card == 0){
-        ace();
-    }
-    else if(card == 1){
-        points += 2;
-    }
-    else if(card == 2){
-        points += 3;
-    }
-    else if(card == 3){
-        points += 4;
-    }
-    else if(card == 4){
-        points += 5;
-    }
-    else if(card == 5){
-        points += 6;
-    }
-    else if(card == 6){
-        points += 7;
-    }
-    else if(card == 7){
-        points += 8;
-    }
-    else if(card == 8){
-        points += 9;
-    }
-    else if(card == 9){
-        points += 10;
-    }
-    else if(card == 10){
-        points += 10;
-    }
-    else if(card == 11){
-        points += 10;
-    }
-    else if(card == 12){
-        points += 10;
-    }
-}
 int point_system_enemy(int card){
-    if(card == 0){
-        enemy_ace();
+    if (card == 0){
+        if(epoints <= 10) {
+            epoints += 11;
+        }
+        else{
+            epoints += 1;
+        }
     }
     else if(card == 1){
         epoints += 2;
@@ -146,33 +65,112 @@ int point_system_enemy(int card){
     }
 }
 
-int enemy(){
-    srand(time(0));
-    for (int i = 0;i<2;i++){
-        card_draw_enemy();
-    }
-    do{
-        if(epoints < 17){
-            card_draw_enemy();
-        }
-        else{
-            std::cout << "The enemy has " << epoints << " points." << std::endl;
-            turn 
-int player() {= 2;
-}
-}
-while(turn == 0 & epoints < 21);
 
+int ace(){
+    std::cout << "You got an ace, input if you want to receive 1 or 11 points: " << std::endl;
+    std::cin >> choice;
+    if(choice == 1){
+        points += 1;
+    }
+    else if(choice == 11){
+        points += 11;
+    }
 }
+int card_draw() {
+    card = rand() % 13;
+    type = rand() % 4;
+    std::cout << "You drew: " << deck[type][card] << std::endl;
+    point_system(card);
+    std::cout << "You have: " << points << " points." << std::endl << std::endl;
+}
+
+int hit_or_stay(){
+    std::cout << "Hit or stay (1 = Hit, 0 = Stay): " << std::endl;
+    std::cin >> choice;
+    if (choice == 1){
+        card_draw();
+    }
+    else if (choice == 0){
+        turn = 0;
+    }
+}
+int point_system(int card){
+    if (card == 0){
+        ace();
+    }
+    else if(card == 1){
+        points += 2;
+    }
+    else if(card == 2){
+        points += 3;
+    }
+    else if(card == 3){
+        points += 4;
+    }
+    else if(card == 4){
+        points += 5;
+    }
+    else if(card == 5){
+        points += 6;
+    }
+    else if(card == 6){
+        points += 7;
+    }
+    else if(card == 7){
+        points += 8;
+    }
+    else if(card == 8){
+        points += 9;
+    }
+    else if(card == 9){
+        points += 10;
+    }
+    else if(card == 10){
+        points += 10;
+    }
+    else if(card == 11){
+        points += 10;
+    }
+    else if(card == 12){
+        points += 10;
+    }
+}
+int card_draw_enemy(){
+    card = rand() % 14;
+    type = rand() % 3;
+    std::cout << "The enemy drew: " << deck[type][card] << std::endl;
+    point_system_enemy(card);
+    std::cout << "The enemy has: " << epoints << " points." << std::endl << std::endl;
+}
+
+int player(){
     srand(time(0));
-    for(int n = 0;n<2;n++){
+    for(int i=0;i<2;i++){
         card_draw();
     }
     do{
         hit_or_stay();
     }
     while(points < 21 & turn == 1);
+    turn = 0;
 
+
+}
+
+int enemy(){
+    srand(time(0));
+    for(int i = 0;i<2;i++){
+        card_draw_enemy();
+    }
+    do{
+        if (epoints <= 17) {
+            card_draw_enemy();
+        }
+        else{
+            turn = 2;
+        }
+    }while(epoints < 21 & turn == 0);
+    turn = 2;
 }
 int winning_condition(){
     for(int i = 0;i<5;i++){
@@ -190,15 +188,16 @@ int winning_condition(){
         std::cout << "Draw!" << std::endl;
     }
 }
-int main() {
-    do{
-        player();
-    }
-    while(turn == 1 & points < 21);
-    do{
+
+int main(){
+    player();
+    if (turn == 0){
         enemy();
     }
-    while(turn == 0 & epoints < 21);
-    winning_condition();
+    for(int i=0;i<5;i++){
+        std::cout << std::endl;
+    }
+    if (turn == 2){
+        winning_condition();
+    }
 }
-
